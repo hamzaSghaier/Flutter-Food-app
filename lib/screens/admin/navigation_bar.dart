@@ -30,9 +30,9 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
           Icon(Icons.account_circle, color: Colors.deepPurple),
         ],
         inactiveIcons: const [
-          Text("Home"),
-          Text("Add"),
-          Text("Profil"),
+          Text("Home",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+          Text("Add",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+          Text("Profil",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
         ],
         color: Colors.white,
         circleColor: Colors.white,

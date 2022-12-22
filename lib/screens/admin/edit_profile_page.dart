@@ -70,7 +70,7 @@ class _EditProfileState extends State<EditProfile> {
                           backgroundImage: FileImage(_profileImageFile),
                           radius: 60,
                         ),
-                        FlatButton(
+                        ElevatedButton(
                           child: Icon(Icons.refresh),
                           onPressed: _clear,
                         ),

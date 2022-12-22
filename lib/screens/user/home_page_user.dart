@@ -61,7 +61,7 @@ class _HomeUserPageState extends State<HomeUserPage> {
                           );
                         },
                         child: GradientText(
-                          "food_rania",
+                          "menu",
                           gradient: LinearGradient(
                             colors: [
                               Color.fromRGBO(255, 138, 120, 1),

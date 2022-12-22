@@ -170,7 +170,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Lottie.asset('images/Loader.json', repeat: true, width: 100, height: 100),
+                    Lottie.asset('images/Loader.json', repeat: true, width: 150, height: 150),
                     SizedBox(
                       height: 20,
                     ),

@@ -25,23 +25,22 @@ login(Users user, AuthNotifier authNotifier, BuildContext context) async {
     if (firebaseUser != null) {
       print("Log In: $firebaseUser");
       authNotifier.setUser(firebaseUser);
-      var userData =  await getUserDetails(authNotifier);
-          if( authNotifier.userDetails.role== "ADMIN"){
-                Navigator.push(
-        context,
-        MaterialPageRoute(builder: (BuildContext context) {
-          return NavigationBarPage(selectedIndex: 0);
-        }),
-      );
-          }else{
-                  Navigator.push(
-        context,
-        MaterialPageRoute(builder: (BuildContext context) {
-          return NavigationBarUserPage(selectedIndex: 0);
-        }),
-      );
-          }
-  
+      var userData = await getUserDetails(authNotifier);
+      if (authNotifier.userDetails.role == "ADMIN") {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (BuildContext context) {
+            return NavigationBarPage(selectedIndex: 0);
+          }),
+        );
+      } else {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (BuildContext context) {
+            return NavigationBarUserPage(selectedIndex: 0);
+          }),
+        );
+      }
     }
   }
 }
@@ -53,7 +52,7 @@ signUp(Users user, AuthNotifier authNotifier, BuildContext context) async {
       .catchError((error) => print(error));
 
   if (authResult != null) {
-  //   UserUpdateInfo updateInfo = UserUpdateInfo();
+    //   UserUpdateInfo updateInfo = UserUpdateInfo();
     // updateInfo.displayName = user.displayName;
 
     User firebaseUser = authResult.user;
@@ -71,15 +70,21 @@ signUp(Users user, AuthNotifier authNotifier, BuildContext context) async {
       uploadUserData(user, userDataUploaded);
 
       await getUserDetails(authNotifier);
-
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (BuildContext context) {
-          return NavigationBarPage(
-            selectedIndex: 0,
-          );
-        }),
-      );
+      if (authNotifier.userDetails.role == "ADMIN") {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (BuildContext context) {
+            return NavigationBarPage(selectedIndex: 0);
+          }),
+        );
+      } else {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (BuildContext context) {
+            return NavigationBarUserPage(selectedIndex: 0);
+          }),
+        );
+      }
     }
   }
 }
@@ -149,7 +154,7 @@ uploadProfilePic(File localFile, Users user) async {
     try {
       user.profilePic = profilePicUrl;
       print(user.profilePic);
-      await userRef.doc(currentUser.uid).set({'profilePic': user.profilePic},  SetOptions(merge: true)).catchError((e) => print(e));
+      await userRef.doc(currentUser.uid).set({'profilePic': user.profilePic}, SetOptions(merge: true)).catchError((e) => print(e));
     } catch (e) {
       print(e);
     }
@@ -218,21 +223,18 @@ getFoods(FoodNotifier foodNotifier) async {
 
   List<Food> foodList = [];
 
- await  snapshot.docs.forEach( (doc) async {
+  await snapshot.docs.forEach((doc) async {
     Food food = Food.fromMap(doc.data());
 
     await FirebaseFirestore.instance.collection('users').doc(doc.data()['userUuidOfPost']).get().catchError((e) => print(e)).then((value) {
       food.userName = value.data()['displayName'];
       food.profilePictureOfUser = value.data()['profilePic'];
-    }).whenComplete(
-      () => foodList.add(food));
+    }).whenComplete(() => foodList.add(food));
 
-        if (foodList.isNotEmpty) {
-    foodNotifier.foodList = foodList;
-    print("dine");
-    print(foodList[0].userName);
-  }
+    if (foodList.isNotEmpty) {
+      foodNotifier.foodList = foodList;
+      print("dine");
+      print(foodList[0].userName);
+    }
   });
-
-
 }

@@ -186,9 +186,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   );
                 } else {
                   return Container(
-                    padding: EdgeInsets.symmetric(vertical: 20),
+                    
                
-                    // child: Lottie.asset('images/confused-and-angry-chef.json', repeat: true, width: 200, height: 150),
+                     child: Lottie.asset('images/F6170321R03.json', repeat: true, width: 200, height: 150),
                   );
                 }
               },
