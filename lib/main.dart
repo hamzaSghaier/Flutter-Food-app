@@ -5,9 +5,9 @@ import 'screens/landing_page.dart';
 import 'notifier/auth_notifier.dart';
 import 'notifier/food_notifier.dart';
 
-void main() async{
-   WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
@@ -26,10 +26,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Food Rania',
+      title: 'Food hamza',
       theme: ThemeData(
-        fontFamily: 'Montserrat',
-        primaryColor: Color.fromRGBO(255, 63, 111, 1),
+        primaryColor: Color.fromARGB(255, 0, 0, 0),
       ),
       home: Scaffold(
         body: LandingPage(),

@@ -3,11 +3,12 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_food_rania/fireb/services.dart';
-import 'package:flutter_food_rania/model/user.dart';
-import 'package:flutter_food_rania/notifier/auth_notifier.dart';
-import 'package:flutter_food_rania/screens/admin/navigation_bar.dart';
-import 'package:flutter_food_rania/widget/custom_raised_button.dart';
+import 'package:flutter_food_hamza/services/services.dart';
+import 'package:flutter_food_hamza/model/user.dart';
+import 'package:flutter_food_hamza/notifier/auth_notifier.dart';
+import 'package:flutter_food_hamza/screens/admin/navigation_bar.dart';
+import 'package:flutter_food_hamza/services/storage.dart';
+import 'package:flutter_food_hamza/widget/custom_raised_button.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 

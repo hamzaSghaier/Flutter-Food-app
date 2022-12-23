@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_food_rania/fireb/services.dart';
-import 'package:flutter_food_rania/notifier/auth_notifier.dart';
-import 'package:flutter_food_rania/notifier/food_notifier.dart';
-import 'package:flutter_food_rania/screens/user/detail_food_page.dart';
-import 'package:flutter_food_rania/screens/admin/navigation_bar.dart';
+import 'package:flutter_food_hamza/services/services.dart';
+import 'package:flutter_food_hamza/notifier/auth_notifier.dart';
+import 'package:flutter_food_hamza/notifier/food_notifier.dart';
+import 'package:flutter_food_hamza/screens/user/detail_food_page.dart';
+import 'package:flutter_food_hamza/screens/admin/navigation_bar.dart';
 import 'package:like_button/like_button.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -51,28 +51,27 @@ class _HomeUserPageState extends State<HomeUserPage> {
                     children: <Widget>[
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext context) {
-                                return NavigationBarPage(selectedIndex: 0);
-                              },
-                            ),
-                          );
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (BuildContext context) {
+                          //       return NavigationBarPage(selectedIndex: 0);
+                          //     },
+                          //   ),
+                          // );
                         },
                         child: GradientText(
                           "menu",
                           gradient: LinearGradient(
                             colors: [
-                              Color.fromRGBO(255, 138, 120, 1),
-                              Color.fromRGBO(255, 63, 111, 1),
+                              Color.fromARGB(255, 6, 6, 6),
+                              Color.fromARGB(255, 4, 4, 4),
                             ],
                             begin: Alignment.centerLeft,
                             end: Alignment.centerRight,
                           ),
                           style: TextStyle(
                             fontSize: 30,
-                            fontFamily: 'MuseoModerno',
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -145,13 +144,13 @@ class _HomeUserPageState extends State<HomeUserPage> {
                                   size: 20,
                                   circleColor: CircleColor(start: Color(0xff00ddff), end: Color(0xff0099cc)),
                                   bubblesColor: BubblesColor(
-                                    dotPrimaryColor: Color(0xff33b5e5),
-                                    dotSecondaryColor: Color(0xff0099cc),
+                                    dotPrimaryColor: Color.fromARGB(255, 190, 229, 51),
+                                    dotSecondaryColor: Color.fromARGB(255, 163, 204, 0),
                                   ),
                                   likeBuilder: (bool isLiked) {
                                     return Icon(
-                                      Icons.favorite,
-                                      color: isLiked ? Colors.red : Colors.grey,
+                                      Icons.star,
+                                      color: isLiked ? Colors.yellow : Colors.grey,
                                       size: 20,
                                     );
                                   },
@@ -177,10 +176,10 @@ class _HomeUserPageState extends State<HomeUserPage> {
                   ),
                 )
               : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Lottie.asset('images/Loader.json', repeat: true, width: 100, height: 100),
+                    Lottie.asset('images/resto.json', repeat: true, width: 100, height: 100),
                     SizedBox(
                       height: 20,
                     ),

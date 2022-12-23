@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_food_rania/model/user.dart';
+import 'package:flutter_food_hamza/model/user.dart';
 
 class AuthNotifier extends ChangeNotifier {
   User _user;

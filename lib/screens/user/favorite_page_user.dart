@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_food_rania/fireb/services.dart';
-import 'package:flutter_food_rania/notifier/auth_notifier.dart';
-import 'package:flutter_food_rania/notifier/food_notifier.dart';
-import 'package:flutter_food_rania/screens/user/detail_food_page.dart';
-import 'package:flutter_food_rania/screens/admin/navigation_bar.dart';
+import 'package:flutter_food_hamza/services/services.dart';
+import 'package:flutter_food_hamza/notifier/auth_notifier.dart';
+import 'package:flutter_food_hamza/notifier/food_notifier.dart';
+import 'package:flutter_food_hamza/screens/user/detail_food_page.dart';
+import 'package:flutter_food_hamza/screens/admin/navigation_bar.dart';
 import 'package:like_button/like_button.dart';
 import 'package:provider/provider.dart';
 import 'package:gradient_text/gradient_text.dart';
@@ -45,20 +45,19 @@ class _FavoritePageUserState extends State<FavoritePageUser> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.only(top: 20),
+            margin: EdgeInsets.only(top: 20,left: 20,bottom: 50),
             child: GradientText(
               "Favorites",
               gradient: LinearGradient(
                 colors: [
-                  Color.fromRGBO(255, 138, 120, 1),
-                  Color.fromRGBO(255, 63, 111, 1),
+                  Color.fromARGB(255, 14, 14, 14),
+                  Color.fromARGB(255, 14, 14, 14),
                 ],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
               ),
               style: TextStyle(
                 fontSize: 30,
-                fontFamily: 'MuseoModerno',
                 fontWeight: FontWeight.bold,
               ),
             ),

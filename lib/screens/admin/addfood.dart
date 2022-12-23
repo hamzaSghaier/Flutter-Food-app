@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_food_rania/fireb/services.dart';
-import 'package:flutter_food_rania/model/food.dart';
-import 'package:flutter_food_rania/widget/custom_raised_button.dart';
+import 'package:flutter_food_hamza/services/services.dart';
+import 'package:flutter_food_hamza/model/food.dart';
+import 'package:flutter_food_hamza/services/storage.dart';
+import 'package:flutter_food_hamza/widget/custom_raised_button.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
@@ -48,9 +49,9 @@ class _AddFoodState extends State<AddFood> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'New repas',
+                  'Add New food',
                   style: TextStyle(
-                    color: Color.fromRGBO(255, 138, 120, 1),
+                    color: Color.fromARGB(255, 4, 4, 4),
                   ),
                 ),
                 SizedBox(height: 10),
@@ -95,7 +96,7 @@ class _AddFoodState extends State<AddFood> {
                             child: Container(
                               alignment: Alignment.center,
                               width: MediaQuery.of(context).size.width,
-                              child: Lottie.asset('images/upload-files.json', repeat: true, width: 100, height: 100),
+                              child: Lottie.asset('images/18714-upload-image.json', repeat: true, width: 100, height: 100),
                             ),
                           ),
                   ],
@@ -105,8 +106,10 @@ class _AddFoodState extends State<AddFood> {
                     onChanged: (String value) {
                       food.name = value;
                     },
+                    
                     decoration: InputDecoration(
                       labelText: 'Add a Title',
+                          border: OutlineInputBorder(),
                     ),
                   ),
                 ),
@@ -121,6 +124,7 @@ class _AddFoodState extends State<AddFood> {
                       food.caption = value;
                     },
                     decoration: InputDecoration(
+                          border: OutlineInputBorder(),
                       labelText: 'description',
                     ),
                   ),

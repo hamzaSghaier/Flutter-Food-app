@@ -1,6 +1,6 @@
 import 'dart:collection';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_food_rania/model/food.dart';
+import 'package:flutter_food_hamza/model/food.dart';
 
 class FoodNotifier with ChangeNotifier {
   List<Food> _foodList = [];

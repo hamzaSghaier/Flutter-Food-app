@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_food_rania/fireb/services.dart';
-import 'package:flutter_food_rania/notifier/auth_notifier.dart';
-import 'package:flutter_food_rania/screens/landing_page.dart';
-import 'package:flutter_food_rania/model/user.dart';
+import 'package:flutter_food_hamza/services/login.dart';
+import 'package:flutter_food_hamza/services/services.dart';
+import 'package:flutter_food_hamza/notifier/auth_notifier.dart';
+import 'package:flutter_food_hamza/screens/landing_page.dart';
+import 'package:flutter_food_hamza/model/user.dart';
+import 'package:flutter_food_hamza/services/signup.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 enum AuthMode { SignUp, Login }
@@ -52,12 +55,16 @@ class _LoginPageState extends State<LoginPage> {
         SizedBox(
           height: 120,
         ),
+        Lottie.asset('images/logo.json', width: 100, height: 100),
+        SizedBox(
+          height: 80,
+        ),
         Container(
           margin: EdgeInsets.symmetric(horizontal: 40),
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(40),
+            borderRadius: BorderRadius.circular(5),
           ),
           child: TextFormField(
             keyboardType: TextInputType.emailAddress,
@@ -71,17 +78,13 @@ class _LoginPageState extends State<LoginPage> {
             onSaved: (String value) {
               _user.email = value;
             },
-            cursorColor: Color.fromRGBO(255, 63, 111, 1),
+            cursorColor: Colors.black,
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: 'Email',
               hintStyle: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Color.fromRGBO(255, 63, 111, 1),
-              ),
-              icon: Icon(
-                Icons.email,
-                color: Color.fromRGBO(255, 63, 111, 1),
+                color: Colors.black,
               ),
             ),
           ),
@@ -94,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(40),
+            borderRadius: BorderRadius.circular(5),
           ),
           child: TextFormField(
             obscureText: true,
@@ -109,17 +112,13 @@ class _LoginPageState extends State<LoginPage> {
               _user.password = value;
             },
             keyboardType: TextInputType.visiblePassword,
-            cursorColor: Color.fromRGBO(255, 63, 111, 1),
+            cursorColor: Colors.black,
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: 'Password',
               hintStyle: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Color.fromRGBO(255, 63, 111, 1),
-              ),
-              icon: Icon(
-                Icons.lock,
-                color: Color.fromRGBO(255, 63, 111, 1),
+                color: Colors.black,
               ),
             ),
           ),
@@ -135,13 +134,13 @@ class _LoginPageState extends State<LoginPage> {
             padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(5),
             ),
             child: Text(
               "Log In",
               style: TextStyle(
                 fontSize: 20,
-                color: Color.fromRGBO(255, 63, 111, 1),
+                color: Colors.black,
               ),
             ),
           ),
@@ -155,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
             Text(
               'Not a registered user?',
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 16,
               ),
             ),
@@ -171,7 +170,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Container(
                 child: Text(
                   'Sign Up here',
-                  style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -194,7 +193,7 @@ class _LoginPageState extends State<LoginPage> {
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(40),
+            borderRadius: BorderRadius.circular(5),
           ),
           child: TextFormField(
             keyboardType: TextInputType.emailAddress,
@@ -208,17 +207,13 @@ class _LoginPageState extends State<LoginPage> {
             onSaved: (String value) {
               _user.displayName = value;
             },
-            cursorColor: Color.fromRGBO(255, 63, 111, 1),
+            cursorColor: Colors.black,
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: 'User name',
               hintStyle: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Color.fromRGBO(255, 63, 111, 1),
-              ),
-              icon: Icon(
-                Icons.account_circle,
-                color: Color.fromRGBO(255, 63, 111, 1),
+                color: Colors.black,
               ),
             ),
           ),
@@ -232,7 +227,7 @@ class _LoginPageState extends State<LoginPage> {
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(40),
+            borderRadius: BorderRadius.circular(5),
           ),
           child: TextFormField(
             validator: (String value) {
@@ -246,17 +241,13 @@ class _LoginPageState extends State<LoginPage> {
               _user.email = value;
             },
             keyboardType: TextInputType.emailAddress,
-            cursorColor: Color.fromRGBO(255, 63, 111, 1),
+            cursorColor: Colors.black,
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: 'Email',
               hintStyle: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Color.fromRGBO(255, 63, 111, 1),
-              ),
-              icon: Icon(
-                Icons.email,
-                color: Color.fromRGBO(255, 63, 111, 1),
+                color: Colors.black,
               ),
             ),
           ),
@@ -269,7 +260,7 @@ class _LoginPageState extends State<LoginPage> {
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(40),
+            borderRadius: BorderRadius.circular(5),
           ),
           child: TextFormField(
             obscureText: true,
@@ -291,11 +282,7 @@ class _LoginPageState extends State<LoginPage> {
               hintText: 'Password',
               hintStyle: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Color.fromRGBO(255, 63, 111, 1),
-              ),
-              icon: Icon(
-                Icons.lock,
-                color: Color.fromRGBO(255, 63, 111, 1),
+                color: Colors.black,
               ),
             ),
           ),
@@ -308,7 +295,7 @@ class _LoginPageState extends State<LoginPage> {
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(40),
+            borderRadius: BorderRadius.circular(5),
           ),
           child: TextFormField(
             validator: (String value) {
@@ -330,11 +317,7 @@ class _LoginPageState extends State<LoginPage> {
               hintText: 'Confirm Password',
               hintStyle: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Color.fromRGBO(255, 63, 111, 1),
-              ),
-              icon: Icon(
-                Icons.lock,
-                color: Color.fromRGBO(255, 63, 111, 1),
+                color: Colors.black,
               ),
             ),
           ),
@@ -356,7 +339,7 @@ class _LoginPageState extends State<LoginPage> {
                 onChanged: (value) {
                   setState(() {
                     val = value;
-                    value == 0 ? _user.role = "USER" : _user.role = "ADMIN";
+                    _user.role = "USER";
                   });
                 },
                 activeColor: Colors.black,
@@ -402,13 +385,13 @@ class _LoginPageState extends State<LoginPage> {
             padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(5),
             ),
             child: Text(
               "Sign Up",
               style: TextStyle(
                 fontSize: 20,
-                color: Color.fromRGBO(255, 63, 111, 1),
+                color: Colors.black,
               ),
             ),
           ),
@@ -420,9 +403,9 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Already a registered user?',
+              'Connect ',
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 16,
               ),
             ),
@@ -438,7 +421,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Container(
                 child: Text(
                   'Log In here',
-                  style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -460,9 +443,9 @@ class _LoginPageState extends State<LoginPage> {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color.fromRGBO(255, 138, 120, 1),
-              Color.fromRGBO(255, 114, 117, 1),
-              Color.fromRGBO(255, 63, 111, 1),
+              Color.fromARGB(255, 110, 105, 104),
+              Color.fromARGB(255, 116, 105, 105),
+              Color.fromARGB(255, 249, 222, 229),
             ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -473,30 +456,7 @@ class _LoginPageState extends State<LoginPage> {
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => LandingPage(),
-                        ));
-                  },
-                  child: Container(
-                    padding: EdgeInsets.only(top: 40),
-                    child: Text(
-                      'food_rania',
-                      style: TextStyle(
-                        fontSize: 60,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontFamily: 'MuseoModerno',
-                      ),
-                    ),
-                  ),
-                ),
-                _authMode == AuthMode.Login ? _buildLoginForm() : _buildSignUPForm()
-              ],
+              children: <Widget>[_authMode == AuthMode.Login ? _buildLoginForm() : _buildSignUPForm()],
             ),
           ),
         ),

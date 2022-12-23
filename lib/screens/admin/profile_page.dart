@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_food_rania/fireb/services.dart';
-import 'package:flutter_food_rania/notifier/auth_notifier.dart';
-import 'package:flutter_food_rania/screens/admin/edit_profile_page.dart';
-import 'package:flutter_food_rania/screens/user/detail_food_page.dart';
-import 'package:flutter_food_rania/widget/custom_raised_button.dart';
+import 'package:flutter_food_hamza/services/services.dart';
+import 'package:flutter_food_hamza/notifier/auth_notifier.dart';
+import 'package:flutter_food_hamza/screens/admin/edit_profile_page.dart';
+import 'package:flutter_food_hamza/screens/user/detail_food_page.dart';
+import 'package:flutter_food_hamza/services/storage.dart';
+import 'package:flutter_food_hamza/widget/custom_raised_button.dart';
 import 'package:like_button/like_button.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -55,23 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ],
             ),
-            authNotifier.userDetails.profilePic != null
-                ? CircleAvatar(
-                    radius: 40.0,
-                    backgroundImage: NetworkImage(authNotifier.userDetails.profilePic),
-                    backgroundColor: Colors.transparent,
-                  )
-                : Container(
-                    decoration: new BoxDecoration(
-                      color: Colors.grey.withOpacity(0.3),
-                      shape: BoxShape.circle,
-                    ),
-                    width: 100,
-                    child: Icon(
-                      Icons.person,
-                      size: 70,
-                    ),
-                  ),
+          
             SizedBox(
               height: 20,
             ),
@@ -86,26 +71,11 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   )
                 : Text("You don't have a user name"),
-            authNotifier.userDetails.bio != null
-                ? Text(
-                    authNotifier.userDetails.bio,
-                    style: TextStyle(fontSize: 15),
-                  )
-                : Text(""),
+    
             SizedBox(
               height: 40,
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (BuildContext context) {
-                    return EditProfile();
-                  }),
-                );
-              },
-              child: CustomRaisedButton(buttonText: 'Edit Profile'),
-            ),
+
             SizedBox(
               height: 20,
             ),
@@ -132,6 +102,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                     child: Image.network(
                                       snapshot.data.docs[index]['img'],
                                       fit: BoxFit.cover,
+                                      // width: 100,
+                                      // height: 100,
                                     ),
                                   ),
                                 ),
@@ -186,9 +158,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   );
                 } else {
                   return Container(
-                    
-               
-                     child: Lottie.asset('images/F6170321R03.json', repeat: true, width: 200, height: 150),
+                    child: Lottie.asset('images/resto.json', repeat: true, width: 200, height: 150),
                   );
                 }
               },

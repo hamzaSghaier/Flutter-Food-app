@@ -44,6 +44,35 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:335897020126:android:133f3c97e793b61ac2244f",
+        "android_client_info": {
+          "package_name": "com.hamza.food.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "335897020126-ue38mq7sb2c447i6q1v3g5sfch82k8he.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUU6t_kK2b_48cxNDYr3NRY-uLWsVIKQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "335897020126-ue38mq7sb2c447i6q1v3g5sfch82k8he.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:335897020126:android:2da968439937eed2c2244f",
         "android_client_info": {
           "package_name": "com.rania.food.app"

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_food_rania/fireb/services.dart';
-import 'package:flutter_food_rania/screens/auth/login_signup_page.dart';
-import 'package:flutter_food_rania/notifier/auth_notifier.dart';
-import 'package:flutter_food_rania/screens/admin/navigation_bar.dart';
-import 'package:flutter_food_rania/screens/user/navigation_bar_user.dart';
+import 'package:flutter_food_hamza/services/services.dart';
+import 'package:flutter_food_hamza/screens/auth/login_signup_page.dart';
+import 'package:flutter_food_hamza/notifier/auth_notifier.dart';
+import 'package:flutter_food_hamza/screens/admin/navigation_bar.dart';
+import 'package:flutter_food_hamza/screens/user/navigation_bar_user.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
@@ -12,16 +12,14 @@ class LandingPage extends StatefulWidget {
   _LandingPageState createState() => _LandingPageState();
 }
 
-class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin{
- AnimationController _controller; 
- 
- 
- 
+class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin {
+  AnimationController _controller;
+
   @override
   void initState() {
     AuthNotifier authNotifier = Provider.of<AuthNotifier>(context, listen: false);
     initializeCurrentUser(authNotifier, context);
-     _controller = AnimationController(vsync: this);
+    _controller = AnimationController(vsync: this);
     super.initState();
   }
 
@@ -36,9 +34,9 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color.fromRGBO(255, 138, 120, 1),
-              Color.fromRGBO(255, 114, 117, 1),
-              Color.fromRGBO(255, 63, 111, 1),
+              Color.fromARGB(255, 251, 250, 250),
+              Color.fromARGB(255, 248, 246, 246),
+              Color.fromARGB(255, 251, 250, 250),
             ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -49,7 +47,7 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             // Text(
-            //   'food_rania',
+            //   'food_hamza',
             //   style: TextStyle(
             //     fontSize: 60,
             //     fontWeight: FontWeight.bold,
@@ -57,19 +55,21 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
             //     fontFamily: 'MuseoModerno',
             //   ),
             // ),
-          Lottie.asset('images/animacaodentro.json', controller: _controller, onLoaded: (composition) {
-                                      // Configure the AnimationController with the duration of the
-                                      // Lottie file and start the animation.
-                                      _controller
-                                        ..duration = composition.duration
-                                        ..forward().whenComplete((() => 
-                                         Navigator.push(context, MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return (authNotifier.user == null) ? LoginPage() :authNotifier.userDetails?.role == "ADMIN"? NavigationBarPage(selectedIndex: 0) :NavigationBarUserPage(selectedIndex: 0) ;
-                  },
-                ))
-                                        ));
-                                    }, repeat: true,width:250,height:450),
+            Lottie.asset('images/resto.json', controller: _controller, onLoaded: (composition) {
+              // Configure the AnimationController with the duration of the
+              // Lottie file and start the animation.
+              _controller
+                ..duration = composition.duration
+                ..forward().whenComplete((() => Navigator.push(context, MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return (authNotifier.user == null)
+                            ? LoginPage()
+                            : authNotifier.userDetails?.role == "ADMIN"
+                                ? NavigationBarPage(selectedIndex: 0)
+                                : NavigationBarUserPage(selectedIndex: 0);
+                      },
+                    ))));
+            }, repeat: true, width: 250, height: 450),
             // SizedBox(
             //   height: 140,
             // ),

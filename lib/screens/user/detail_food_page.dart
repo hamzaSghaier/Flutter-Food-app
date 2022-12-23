@@ -24,7 +24,7 @@ class FoodDetailPage extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(
@@ -32,22 +32,20 @@ class FoodDetailPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
-                    'Details',
-                    style: TextStyle(
-                      color: Color.fromRGBO(255, 138, 120, 1),
-                    ),
-                  ),
+             
                   GestureDetector(
                     onTap: () {
                       Navigator.pop(context);
                     },
                     child: Icon(
-                      Icons.close,
+                      Icons.arrow_back,
                     ),
                   ),
                 ],
               ),
+            ),
+                 SizedBox(
+              height: 50,
             ),
             Container(
               width: MediaQuery.of(context).size.width,
@@ -67,7 +65,7 @@ class FoodDetailPage extends StatelessWidget {
                   Text(
                     imageName,
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -77,7 +75,7 @@ class FoodDetailPage extends StatelessWidget {
                   Text(
                     imageCaption,
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 25,
                     ),
                   ),
                   SizedBox(height: 40),
@@ -89,15 +87,15 @@ class FoodDetailPage extends StatelessWidget {
                               userName,
                               gradient: LinearGradient(
                                 colors: [
-                                  Color.fromRGBO(255, 138, 120, 1),
-                                  Color.fromRGBO(255, 63, 111, 1),
+                                  Color.fromARGB(255, 8, 8, 8),
+                                  Color.fromARGB(255, 2, 2, 2),
                                 ],
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
                               ),
                               style: TextStyle(
-                                fontSize: 15,
-                                fontFamily: 'MuseoModerno',
+                                fontSize: 25,
+                               
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -113,8 +111,8 @@ class FoodDetailPage extends StatelessWidget {
                             createdTimeOfPost,
                           ),
                       style: TextStyle(
-                        fontSize: 12,
-                        color: Color.fromRGBO(255, 138, 120, 1),
+                        fontSize: 25,
+                        color: Color.fromARGB(255, 3, 3, 3),
                       ),
                     ),
                   ),
